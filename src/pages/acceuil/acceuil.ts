@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Article } from '../../classes/Article';
 
 /**
  * Generated class for the AcceuilPage page.
@@ -16,13 +17,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class AcceuilPage {
 
   profil : any; 
+  articles : Article[] = [] ;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.profil = navParams.get('profil');
+    this.articles.push(new Article("test title", "test link", "test description"));
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AcceuilPage');
   }
 
+  clicked(){
+    console.log("clicked");
+  }
 }
