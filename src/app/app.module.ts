@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AcceuilPage } from '../pages/acceuil/acceuil';
 
 import { Facebook } from '@ionic-native/facebook';
 import { FacebookProvider } from '../providers/facebook/facebook';
@@ -13,7 +14,8 @@ import { FacebookProvider } from '../providers/facebook/facebook';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    AcceuilPage
   ],
   imports: [
     BrowserModule,
@@ -22,7 +24,8 @@ import { FacebookProvider } from '../providers/facebook/facebook';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage, 
+    AcceuilPage
   ],
   providers: [
     StatusBar,
