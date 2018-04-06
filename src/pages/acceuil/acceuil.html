@@ -7,11 +7,13 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Welcome {{profil.name}} <span><img src="{{profil.picture.data.url}}"></span></ion-title>
+    <ion-title>Horizon</ion-title>
   </ion-navbar>
 
 </ion-header>
 <ion-content padding>
+
+  <div id="AcceuilTitle">Welcome {{profil.name}} <span><img src="{{profil.picture.data.url}}" id="ProfilPicture"></span></div>
   
   <ion-list>
       <ion-item *ngFor="let article of articles" (tap)="clicked()">

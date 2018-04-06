@@ -22,6 +22,7 @@ export class AcceuilPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.profil = navParams.get('profil');
     this.articles.push(new Article("test title", "test link", "test description"));
+    this.articles.push(new Article("test title2", "test link2", "test description2"));
   }
 
   ionViewDidLoad() {
