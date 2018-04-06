@@ -16,7 +16,7 @@
 </ion-header>
 <ion-content padding>
 
-  <div id="AcceuilTitle">Welcome {{profil.name}} <span><img src="{{profil.picture.data.url}}" id="ProfilPicture"></span></div>
+  <div id="AcceuilTitle">Welcome<span></span></div>
   
   <ion-list>
       <ion-item *ngFor="let article of articles" (tap)="clicked()">
