@@ -37,7 +37,8 @@
     "ionicons": "3.0.0",
     "rxjs": "5.5.7",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.20"
+    "zone.js": "0.8.20",
+    "cordova-plugin-facebook": "^0.2.2"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
@@ -51,9 +52,9 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {},
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-facebook4": {
-        "APP_ID": "2014262192228066",
-        "APP_NAME": "Horizon"
+      "cordova-plugin-facebook": {
+        "FACEBOOK_DISPLAY_NAME": "Horizon",
+        "FACEBOOK_APP_ID": "2014262192228066"
       }
     },
     "platforms": [
