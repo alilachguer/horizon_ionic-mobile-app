@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Article } from '../../classes/Article';
+
 /**
  * Generated class for the AcceuilPage page.
  *
@@ -31,4 +32,6 @@ export class AcceuilPage {
   clicked(){
     console.log("clicked");
   }
+
+  
 }

@@ -7,15 +7,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AcceuilPage } from '../pages/acceuil/acceuil';
+import { ProfilPage} from '../pages/profil/profil';
 
 import { Facebook } from '@ionic-native/facebook';
 import { FacebookProvider } from '../providers/facebook/facebook';
+
+
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    AcceuilPage
+    AcceuilPage,
+    ProfilPage
   ],
   imports: [
     BrowserModule,
@@ -25,14 +30,16 @@ import { FacebookProvider } from '../providers/facebook/facebook';
   entryComponents: [
     MyApp,
     HomePage, 
-    AcceuilPage
+    AcceuilPage,
+    ProfilPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Facebook, 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FacebookProvider
+    FacebookProvider,
+    
   ]
 })
 export class AppModule {}

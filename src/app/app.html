@@ -1,9 +1,15 @@
 <ion-menu [content]="content" persistent="true">
         <ion-content>
-          <ion-list>
-            <p>some menu content, could be list items</p>
-          </ion-list>
+            <ion-list>
+                <ion-item>
+                    <img src="../../assets/imgs/max-rehkopf.png" />
+                    <p>Here goes the name of the user</p>
+                </ion-item>
+                <ion-item>
+                    <button id="profil" ion-button (tap)=showProfil()>Profil</button>
+                </ion-item>
+            </ion-list>
         </ion-content>
 </ion-menu>
       
-<ion-nav [root]="rootPage" #content></ion-nav>
+<ion-nav #myNav [root]="rootPage" #content></ion-nav>
