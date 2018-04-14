@@ -16,13 +16,22 @@
 </ion-header>
 <ion-content padding>
 
-  <div id="AcceuilTitle">Welcome<span></span></div>
-  
+
   <ion-list>
       <ion-item *ngFor="let article of articles" (tap)="clicked()">
           <p> {{article.title}} </p>
+          <img [src]="article.image" alt="">
           <p> {{article.description}} </p>
           <p> {{article.link}} </p>
+          <button ion-button icon-only>
+            <ion-icon name="thumbs-up"></ion-icon>
+          </button>
+          <button ion-button icon-only>
+            <ion-icon name="thumbs-down"></ion-icon>
+          </button>
+          <button ion-button icon-only>
+            <ion-icon name="share"></ion-icon>
+          </button>
       </ion-item>
   </ion-list>
 </ion-content>
