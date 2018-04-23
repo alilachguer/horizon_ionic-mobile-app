@@ -23,12 +23,15 @@
     "@angular/platform-browser-dynamic": "5.2.9",
     "@ionic-native/core": "4.5.3",
     "@ionic-native/facebook": "^4.7.0",
+    "@ionic-native/http": "^4.7.0",
     "@ionic-native/splash-screen": "4.5.3",
     "@ionic-native/status-bar": "4.5.3",
     "@ionic/storage": "2.1.3",
     "android-versions": "^1.3.0",
     "cordova-android": "7.0.0",
+    "cordova-plugin-advanced-http": "^1.11.1",
     "cordova-plugin-device": "^2.0.1",
+    "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-splashscreen": "^5.0.2",
@@ -54,7 +57,8 @@
       "cordova-plugin-facebook4": {
         "APP_ID": "2014262192228066",
         "APP_NAME": "Horizon"
-      }
+      },
+      "cordova-plugin-advanced-http": {}
     },
     "platforms": [
       "android"
