@@ -18,20 +18,21 @@
 
 
   <ion-list>
-      <ion-item *ngFor="let article of articles" (tap)="clicked()">
-          <p> {{article.title}} </p>
-          <img [src]="article.image" alt="">
-          <p> {{article.description}} </p>
-          <p> {{article.link}} </p>
-          <button ion-button icon-only>
-            <ion-icon name="thumbs-up"></ion-icon>
-          </button>
-          <button ion-button icon-only>
-            <ion-icon name="thumbs-down"></ion-icon>
-          </button>
-          <button ion-button icon-only>
-            <ion-icon name="share"></ion-icon>
-          </button>
-      </ion-item>
+          <ion-card *ngFor="let article of articles" (tap)="clicked()"> 
+              <ion-card-content class="item item-text-wrap" style="white-space: pre-line;">
+                  <p> {{ article.Titre }} </p>
+                  <img src={{article.Image}} alt="Pas d'image pour cette source" />
+                  <p> {{ article.Description }} </p>
+                </ion-card-content>
+                <button ion-button icon-only>
+                    <ion-icon name="thumbs-up"></ion-icon>
+                  </button>
+                  <button ion-button icon-only>
+                    <ion-icon name="thumbs-down"></ion-icon>
+                  </button>
+                  <button ion-button icon-only>
+                    <ion-icon name="share"></ion-icon>
+                  </button>
+          </ion-card>
   </ion-list>
 </ion-content>
