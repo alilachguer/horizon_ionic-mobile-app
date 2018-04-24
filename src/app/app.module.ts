@@ -14,9 +14,6 @@ import { FacebookProvider } from '../providers/facebook/facebook';
 import { RestProvider } from '../providers/rest/rest';
 import { HttpClientModule } from '@angular/common/http';
 
-
-
-
 @NgModule({
   declarations: [
     MyApp,
