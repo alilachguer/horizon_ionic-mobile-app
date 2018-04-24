@@ -13,7 +13,7 @@ import { ProfilPage} from '../pages/profil/profil';
 })
 export class MyApp {
   @ViewChild('myNav') nav: NavController // <--- Reference to the Nav
-  rootPage:any = AcceuilPage;
+  rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar,
               splashScreen: SplashScreen ,
