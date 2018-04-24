@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
+import { Article } from '../../classes/Article';
 
 /**
  * Generated class for the AcceuilPage page.
@@ -24,6 +25,26 @@ export class AcceuilPage {
     this.getArticles();
   }
   
+private clic(article){
+  window.open(article.Link);
+  console.log(article.Link);
+}
+
+private like(article){
+  article.Score += 1;
+  console.log(article.Score);
+}
+
+private unLike(article){
+  article.Score -= 1;
+  console.log(article.Score);
+}
+
+private share(article){
+  article.Score += 2;
+  console.log(article.Score);
+}
+
   getArticles(){
     this.rest.getArticles()
     .then(data => {

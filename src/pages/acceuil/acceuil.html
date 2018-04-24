@@ -19,18 +19,21 @@
 
   <ion-list>
           <ion-card *ngFor="let article of articles" (tap)="clicked()"> 
+            <div (tap)="clic(article)">
               <ion-card-content class="item item-text-wrap" style="white-space: pre-line;">
-                  <p> {{ article.Titre }} </p>
-                  <img src={{article.Image}} alt="Pas d'image pour cette source" />
+                  <p><b> {{ article.Titre }} </b></p>
+                  <img [src]="article.Image" alt="Pas d'image pour cet article" />
                   <p> {{ article.Description }} </p>
-                </ion-card-content>
-                  <button ion-button icon-only style="margin-left: 30px">
+                  <p> {{ article.Source }} </p>    
+              </ion-card-content>
+            </div> 
+                  <button ion-button icon-only style="margin-left: 30px" (tap)="like(article)">
                     <ion-icon name="thumbs-up"></ion-icon>
                   </button>
-                  <button ion-button icon-only>
+                  <button ion-button icon-only (tap)="unLike(article)">
                     <ion-icon name="thumbs-down"></ion-icon>
                   </button>
-                  <button ion-button icon-only>
+                  <button ion-button icon-only (tap)="share(article)">
                     <ion-icon name="share"></ion-icon>
                   </button>
           </ion-card>
