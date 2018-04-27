@@ -35,6 +35,7 @@ export class FacebookProvider {
     });
   }
 
+
   getProfile(){ // Nouvelle fonction qui retourne un Observable avec les informations de profil
     return Observable.create(observer => {
       if(this.session.status === "connected"){

@@ -9,7 +9,7 @@ import { AcceuilPage } from '../acceuil/acceuil';
 })
 export class HomePage {
 
-  userProfile: any;
+  public userProfile: any;
 
   constructor(public navCtrl: NavController, public facebook : FacebookProvider) {
 
