@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { FacebookProvider } from '../../providers/facebook/facebook';
 import { AcceuilPage } from '../acceuil/acceuil';
+import { RestProvider } from '../../providers/rest/rest';
+
 
 @Component({
   selector: 'page-home',
@@ -10,8 +12,9 @@ import { AcceuilPage } from '../acceuil/acceuil';
 export class HomePage {
 
   public userProfile: any;
+  public error : string; 
 
-  constructor(public navCtrl: NavController, public facebook : FacebookProvider) {
+  constructor(public navCtrl: NavController, public facebook : FacebookProvider, public rest : RestProvider) {
 
   }
 
@@ -20,10 +23,23 @@ export class HomePage {
       if(connected === true){
         this.facebook.getProfile().subscribe((profile)=>{   //Si connecté, on récupére le profil
           this.userProfile = profile;
-          this.navCtrl.push(AcceuilPage, {profil : this.userProfile});
+          this.rest.checkUser(this.userProfile.id , this.userProfile.name)
+          .then(data => {
+            if(JSON.stringify(data) == "true"){
+              this.navCtrl.push(AcceuilPage, {profil : this.userProfile});
+            }else{
+              this.rest.postUser(this.userProfile.id , this.userProfile.name)
+              .then(data => {
+              if(JSON.stringify(data) == "true"){
+                this.navCtrl.push(AcceuilPage, {profil : this.userProfile});
+                }else{
+                  this.error = "an error has occured";
+                }
+              });
+            }
+          });
         }, (error)=>{console.log(error); });
       }
     }, (error)=>{console.log(error);});
   }
-
 }

@@ -18,6 +18,7 @@
 
 
   <ion-list>
+    {{ test }}
           <ion-card *ngFor="let article of articles" (tap)="clicked()"> 
             <div (tap)="clic(article)">
               <ion-card-content class="item item-text-wrap" style="white-space: pre-line;">

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
-import { Article } from '../../classes/Article';
 
 /**
  * Generated class for the AcceuilPage page.
@@ -19,12 +18,13 @@ export class AcceuilPage {
 
   profil : any; 
   articles : any;
+  test : string; 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public rest : RestProvider) {
-    this.profil = navParams.get('profil');
-    this.getArticles();
-  }
-  
+constructor(public navCtrl: NavController, public navParams: NavParams, public rest : RestProvider) {
+  this.profil = navParams.get('profil');
+  this.getArticles();
+}
+
 private clic(article){
   window.open(article.Link);
   console.log(article.Link);

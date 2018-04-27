@@ -26,4 +26,25 @@ export class RestProvider {
     });
   }
 
+  postUser(id: any, nom: any){
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl+"/postuser", ('id='+id+'&nom='+ nom), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+      .subscribe(data => {
+        resolve(data);
+      }), err => {
+      console.log(err);
+      }
+    });
+  }
+
+  checkUser(id: any, nom: any){
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl+"/checkuser", ('id='+id+'&nom='+ nom), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+      .subscribe(data => {
+        resolve(data);
+      }), err => {
+      console.log(err);
+      }
+    });
+  }
 }
