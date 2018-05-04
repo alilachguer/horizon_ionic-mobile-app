@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
+import { FacebookProvider } from '../../providers/facebook/facebook';
 
 /**
  * Generated class for the AcceuilPage page.
@@ -20,7 +21,8 @@ export class AcceuilPage {
   articles : any;
   test : string; 
 
-constructor(public navCtrl: NavController, public navParams: NavParams, public rest : RestProvider) {
+constructor(public navCtrl: NavController, public navParams: NavParams, public rest : RestProvider, 
+  private alertCtrl : AlertController, public facebook : FacebookProvider ) {
   this.profil = navParams.get('profil');
   this.getArticles();
 }
@@ -30,9 +32,13 @@ private clic(article){
   console.log(article.Link);
 }
 
-private like(article){
-  article.Score += 1;
-  console.log(article.Score);
+private like(link){
+  let alert = this.alertCtrl.create({
+    title: 'New Friend!',
+    subTitle: 'Link your gonna like  : ' +link,
+    buttons: ['OK']
+  });
+  alert.present();
 }
 
 private unLike(article){
@@ -40,10 +46,28 @@ private unLike(article){
   console.log(article.Score);
 }
 
-private share(article){
-  article.Score += 2;
-  console.log(article.Score);
-}
+  private share(link){
+   this.rest.doShare(this.profil.id, link)
+   .then(data => {
+    console.log("data");
+   })
+   try{
+    this.facebook.share(link)
+    let alert = this.alertCtrl.create({
+      title: 'Partage',
+      subTitle: 'Votre article a été partagé avec succès!',
+      buttons: ['Cool']
+    });
+    alert.present();
+   }catch{
+    let alert = this.alertCtrl.create({
+      title: 'Partage',
+      subTitle: 'Votre article n\' pas été partagé ! Connexion mauvaise ? :\'(',
+      buttons: ['Dommage']
+    });
+    alert.present();
+   }
+  }
 
   getArticles(){
     this.rest.getArticles()

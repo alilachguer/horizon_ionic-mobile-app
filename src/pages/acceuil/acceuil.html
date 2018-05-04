@@ -28,13 +28,13 @@
                   <p> {{ article.Source }} </p>    
               </ion-card-content>
             </div> 
-                  <button ion-button icon-only style="margin-left: 30px" (tap)="like(article)">
+                  <button ion-button icon-only style="margin-left: 30px" (click)="like()">
                     <ion-icon name="thumbs-up"></ion-icon>
                   </button>
-                  <button ion-button icon-only (tap)="unLike(article)">
+                  <button ion-button icon-only (click)="unLike(article)">
                     <ion-icon name="thumbs-down"></ion-icon>
                   </button>
-                  <button ion-button icon-only (tap)="share(article)">
+                  <button ion-button icon-only (click)="share(article.Link)">
                     <ion-icon name="share"></ion-icon>
                   </button>
           </ion-card>

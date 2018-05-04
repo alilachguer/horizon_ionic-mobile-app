@@ -35,6 +35,18 @@ export class FacebookProvider {
     });
   }
 
+    share(link : string) {
+        if(this.session.status === "connected"){
+          this.facebook.showDialog({
+              method: "share",
+              link: link,
+              caption: "Ionic share facebook test",
+              description: null,
+              picture: null
+          })
+        }
+    }
+
 
   getProfile(){ // Nouvelle fonction qui retourne un Observable avec les informations de profil
     return Observable.create(observer => {
