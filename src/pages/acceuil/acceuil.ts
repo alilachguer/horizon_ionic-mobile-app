@@ -20,11 +20,20 @@ export class AcceuilPage {
   profil : any; 
   articles : any;
   test : string; 
+  likedArticles : any[]; 
 
 constructor(public navCtrl: NavController, public navParams: NavParams, public rest : RestProvider, 
   private alertCtrl : AlertController, public facebook : FacebookProvider ) {
   this.profil = navParams.get('profil');
   this.getArticles();
+  this.getLiked(this.profil.id);
+}
+
+private isLiked(a : number) : boolean{
+    let index : number = this.likedArticles.indexOf(a);
+    if(index != -1 )
+    return true; 
+    else return false; 
 }
 
 private clic(article){
@@ -32,13 +41,26 @@ private clic(article){
   console.log(article.Link);
 }
 
-private like(link){
-  let alert = this.alertCtrl.create({
-    title: 'New Friend!',
-    subTitle: 'Link your gonna like  : ' +link,
-    buttons: ['OK']
-  });
-  alert.present();
+private like(link, id){
+  this.rest.doLike(this.profil.id, link)
+  .then(data => {
+    if(JSON.stringify(data) == 'true'){
+      let alert = this.alertCtrl.create({
+        title: 'Action',
+        subTitle: 'Votre like a bien été pris en compte!',
+        buttons: ['Cool']
+      });
+      alert.present();
+      this.likedArticles.push(id);
+    }else{
+      let alert = this.alertCtrl.create({
+        title: 'Action',
+        subTitle: 'Votre like n\'a pas été pris en compte! Vous avez déjà liké cet article ?',
+        buttons: ['Oh ! Okey ! ']
+      });
+      alert.present();
+    }
+  })
 }
 
 private unLike(article){
@@ -73,6 +95,13 @@ private unLike(article){
     this.rest.getArticles()
     .then(data => {
       this.articles = data; 
+    })
+  }
+
+  getLiked(id : any){
+    this.rest.getLike(id)
+    .then(data => {
+      this.likedArticles = JSON.parse(JSON.stringify(data));
     })
   }
 

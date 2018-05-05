@@ -48,6 +48,27 @@ export class RestProvider {
     });
   }
 
+  doLike(id: any, link: any){
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl+"/InsertLike", ('id='+id+'&link='+link), {headers: {'Content-Type' : 'application/x-www-form-urlencoded'}})
+      .subscribe(data => {
+        resolve(data);
+      }), err =>{
+        console.log(err);
+      }
+    });
+  }
+
+  getLike(id : any){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+"/GetLikedArticlesByUser/"+id).subscribe(data => {
+        resolve(data);
+      }), err => {
+        console.log(err);
+      }
+    });
+  }
+
   checkUser(id: any, nom: any){
     return new Promise(resolve => {
       this.http.post(this.apiUrl+"/checkuser", ('id='+id+'&nom='+ nom), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})

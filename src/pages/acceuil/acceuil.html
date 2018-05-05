@@ -15,10 +15,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-
-
   <ion-list>
-    {{ test }}
           <ion-card *ngFor="let article of articles" (tap)="clicked()"> 
             <div (tap)="clic(article)">
               <ion-card-content class="item item-text-wrap" style="white-space: pre-line;">
@@ -28,9 +25,12 @@
                   <p> {{ article.Source }} </p>    
               </ion-card-content>
             </div> 
-                  <button ion-button icon-only style="margin-left: 30px" (click)="like()">
+                  <button *ngIf="!isLiked(article.Id)" ion-button icon-only style="margin-left: 30px" (click)="like(article.Link, article.Id)">
                     <ion-icon name="thumbs-up"></ion-icon>
                   </button>
+                  <span *ngIf="isLiked(article.Id)"style="margin-left: 30px; color: red; font-size: 15px; margin-right : 30px;">
+                    <ion-icon name="heart"></ion-icon>
+                  </span>
                   <button ion-button icon-only (click)="unLike(article)">
                     <ion-icon name="thumbs-down"></ion-icon>
                   </button>
