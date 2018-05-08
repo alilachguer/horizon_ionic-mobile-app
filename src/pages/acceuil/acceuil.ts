@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { FacebookProvider } from '../../providers/facebook/facebook';
+import { ProfilPage} from '../../pages/profil/profil';
+import { CommentsPage } from '../comments/comments';
 
 /**
  * Generated class for the AcceuilPage page.
@@ -29,11 +31,11 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public r
   this.getLiked(this.profil.id);
 }
 
-private isLiked(a : number) : boolean{
-    let index : number = this.likedArticles.indexOf(a);
-    if(index != -1 )
-    return true; 
-    else return false; 
+public isLiked(a : string) {      
+  let id = parseInt(a);
+  if(this.likedArticles.indexOf(id) != -1)
+  return true;
+  else return false;      
 }
 
 private clic(article){
@@ -51,7 +53,8 @@ private like(link, id){
         buttons: ['Cool']
       });
       alert.present();
-      this.likedArticles.push(id);
+      let idInt : number = parseInt(id);
+      this.likedArticles.push(idInt);
     }else{
       let alert = this.alertCtrl.create({
         title: 'Action',
@@ -61,11 +64,6 @@ private like(link, id){
       alert.present();
     }
   })
-}
-
-private unLike(article){
-  article.Score -= 1;
-  console.log(article.Score);
 }
 
   private share(link){
@@ -91,6 +89,10 @@ private unLike(article){
    }
   }
 
+  dislike(id){
+    this.navCtrl.push(ProfilPage, { idArticle : id , idUtilisateur : this.profil.id});
+  }
+
   getArticles(){
     this.rest.getArticles()
     .then(data => {
@@ -98,16 +100,21 @@ private unLike(article){
     })
   }
 
+  readComments(id : any){
+    this.navCtrl.push( CommentsPage , {id : id} );
+  }
+
   getLiked(id : any){
     this.rest.getLike(id)
     .then(data => {
       this.likedArticles = JSON.parse(JSON.stringify(data));
-    })
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AcceuilPage');
   }
+
 
   clicked(){
     console.log("clicked");

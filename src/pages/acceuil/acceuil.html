@@ -22,21 +22,27 @@
                   <p><b> {{ article.Titre }} </b></p>
                   <img [src]="article.Image" alt="Pas d'image pour cet article" />
                   <p> {{ article.Description }} </p>
-                  <p> {{ article.Source }} </p>    
+                  <p> {{ article.Source }} </p> 
+                  <p> {{ article.Id }} </p>  
               </ion-card-content>
             </div> 
-                  <button *ngIf="!isLiked(article.Id)" ion-button icon-only style="margin-left: 30px" (click)="like(article.Link, article.Id)">
+              <span style="margin: 0 10px 0 10px">
+                  <button *ngIf="!isLiked(article.Id)" ion-button icon-only (click)="like(article.Link, article.Id)">
                     <ion-icon name="thumbs-up"></ion-icon>
-                  </button>
-                  <span *ngIf="isLiked(article.Id)"style="margin-left: 30px; color: red; font-size: 15px; margin-right : 30px;">
+                  </button>     
+                  <button ion-button icon-only outline color="danger" *ngIf="isLiked(article.Id)" style="color: red; font-size: 15px;">
                     <ion-icon name="heart"></ion-icon>
-                  </span>
-                  <button ion-button icon-only (click)="unLike(article)">
-                    <ion-icon name="thumbs-down"></ion-icon>
+                  </button>      
+                  <button ion-button icon-only (click)="dislike(article.Id)">
+                      <ion-icon name="chatbubbles"></ion-icon>
                   </button>
                   <button ion-button icon-only (click)="share(article.Link)">
                     <ion-icon name="share"></ion-icon>
                   </button>
+                  <button  ion-button icon-only outline color="secondary" (click)="readComments(article.Id)" >
+                    lire commentaires
+                  </button>
+              </span>
           </ion-card>
   </ion-list>
 </ion-content>

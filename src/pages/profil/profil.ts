@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { RestProvider } from '../../providers/rest/rest';
+import { AcceuilPage } from '../acceuil/acceuil';
 
 /**
  * Generated class for the ProfilPage page.
@@ -15,8 +17,36 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  idArticle : any; 
+  idUtilisateur : any;
+  commentaire : string = "";
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public rest : RestProvider, public alertCtrl : AlertController) {
+    this.idArticle = navParams.get('idArticle');
+    this.idUtilisateur = navParams.get('idUtilisateur')
   }
+
+  onChangeTime(content){
+    this.commentaire = content;
+  }
+
+  public enregistrer(){
+      this.rest.doComment(this.idUtilisateur, this.idArticle, this.commentaire)
+      .then(data => {     
+        this.navCtrl.pop();  
+      })
+      let alert = this.alertCtrl.create({
+        title: 'Message',
+        message: 'votre commentaire a été ajouté avec succès !',
+        buttons: [
+          {
+            text: 'Cooool',
+          }
+        ]
+        });
+        alert.present();
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilPage');

@@ -13,13 +13,15 @@ import { Facebook } from '@ionic-native/facebook';
 import { FacebookProvider } from '../providers/facebook/facebook';
 import { RestProvider } from '../providers/rest/rest';
 import { HttpClientModule } from '@angular/common/http';
+import { CommentsPage } from '../pages/comments/comments';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AcceuilPage,
-    ProfilPage
+    ProfilPage, 
+    CommentsPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage, 
     AcceuilPage,
-    ProfilPage
+    ProfilPage, 
+    CommentsPage
   ],
   providers: [
     StatusBar,

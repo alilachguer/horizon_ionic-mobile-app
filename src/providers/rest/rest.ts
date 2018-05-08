@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AlertController } from 'ionic-angular';
 
 /*
   Generated class for the RestProvider provider.
@@ -12,7 +13,7 @@ export class RestProvider {
 
   apiUrl = "http://umontpelliertesting.somee.com/api/articles";
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public alertCtrl : AlertController) {
     console.log('Hello RestProvider Provider');
   }
 
@@ -72,6 +73,27 @@ export class RestProvider {
   checkUser(id: any, nom: any){
     return new Promise(resolve => {
       this.http.post(this.apiUrl+"/checkuser", ('id='+id+'&nom='+ nom), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+      .subscribe(data => {
+        resolve(data);
+      }), err => {
+      console.log(err);
+      }
+    });
+  }
+
+  getComments(id : any){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+"/getcomment/"+id).subscribe(data => {
+        resolve(data);
+      }), err => {
+        console.log(err);
+      }
+    });
+  }
+
+  doComment(idUtilisateur: any, idArticle : any, commentaire :any ){
+    return new Promise(resolve => {
+      this.http.post(this.apiUrl+"/postcomment", ('idUtilisateur='+idUtilisateur+'&idArticle='+ idArticle+'&contenu='+commentaire), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
       .subscribe(data => {
         resolve(data);
       }), err => {

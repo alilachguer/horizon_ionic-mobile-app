@@ -6,7 +6,6 @@ import { NavController} from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
 import { AcceuilPage } from '../pages/acceuil/acceuil';
-import { ProfilPage} from '../pages/profil/profil';
 import { FacebookProvider } from '../providers/facebook/facebook';
 
 @Component({
@@ -38,10 +37,6 @@ export class MyApp {
       }
     }, (error)=>{console.log(error);});
   }
-
-    showProfil(){
-      this.nav.push(ProfilPage);
-    }
 }
 
   

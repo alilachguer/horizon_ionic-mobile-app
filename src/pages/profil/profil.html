@@ -7,12 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Je suis le profil </ion-title>
+    <ion-title>Saisir votre commentaire</ion-title>
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content padding>
-
+    <h2>Votre commentaire</h2>
+    <textarea #myInput id="myInput" placeholder="Appuyez et commencez votre saisie" rows="20" maxLength="500" (keyup)="resize()" (input)='onChangeTime($event.target.value)'></textarea>
+    <button ion-button color="secondary" (tap)="enregistrer()" full>Valider commentaire</button>
 </ion-content>
