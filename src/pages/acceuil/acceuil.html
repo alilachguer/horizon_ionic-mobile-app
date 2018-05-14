@@ -20,10 +20,10 @@
             <div (tap)="clic(article)">
               <ion-card-content class="item item-text-wrap" style="white-space: pre-line;">
                   <p><b> {{ article.Titre }} </b></p>
+                  <span>{{ article.PublishDate }} - {{ article.Categorie }}</span>
                   <img [src]="article.Image" alt="Pas d'image pour cet article" />
                   <p> {{ article.Description }} </p>
                   <p> {{ article.Source }} </p> 
-                  <p> {{ article.Id }} </p>  
               </ion-card-content>
             </div> 
               <span style="margin: 0 10px 0 10px">
@@ -39,8 +39,8 @@
                   <button ion-button icon-only (click)="share(article.Link)">
                     <ion-icon name="share"></ion-icon>
                   </button>
-                  <button  ion-button icon-only outline color="secondary" (click)="readComments(article.Id)" >
-                    lire commentaires
+                  <button  ion-button icon-only outline color="secondary" (click)="readComments(article.Id)" style="padding: 0 5px 0 5px">
+                    commentaires
                   </button>
               </span>
           </ion-card>
