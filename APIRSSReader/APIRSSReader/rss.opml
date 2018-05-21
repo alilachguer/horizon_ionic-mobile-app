@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<opml version="1.0">
+  <head>
+    <title>Liferea Feed List Export</title>
+  </head>
+  <body>
+    <outline title="Horizon" text="Horizon" description="Horizon" type="folder">
+      <outline title="Le Monde.fr" text="Le Monde.fr" description="Le Monde.fr" type="rss" xmlUrl="http://www.lemonde.fr/rss/sequence/0,2-3208,1-0,0.xml" htmlUrl="http://www.lemonde.fr/rss/une.xml"/>
+      <outline title="Liberation.fr" text="Liberation.fr" description="Liberation.fr" type="atom" xmlUrl="http://www.liberation.fr/rss.php" htmlUrl="http://www.liberation.fr/"/>
+      <outline title="Le Point - En continu" text="Le Point - En continu" description="Le Point - En continu" type="rss" xmlUrl="http://www.lepoint.fr/24h-infos/rss.xml" htmlUrl="http://www.lepoint.fr#xtor=RSS-221"/>
+      <outline title="Marianne" text="Marianne" description="Marianne" type="rss" xmlUrl="https://www.marianne.net/rss.xml" htmlUrl="https://www.marianne.net"/>
+      <outline title="Le Huffington Post" text="Le Huffington Post" description="Le Huffington Post" type="rss" xmlUrl="http://www.huffingtonpost.fr/feeds/index.xml" htmlUrl="http://www.aol.com"/>
+      <outline title="Le Figaro" text="Le Figaro" description="Le Figaro" type="rss" xmlUrl="http://www.lefigaro.fr/rss/figaro_actualites.xml" htmlUrl="http://www.lefigaro.fr"/>
+    </outline>
+  </body>
+</opml>
