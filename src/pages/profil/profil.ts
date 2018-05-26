@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
-import { AcceuilPage } from '../acceuil/acceuil';
 
 /**
  * Generated class for the ProfilPage page.

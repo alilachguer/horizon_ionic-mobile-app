@@ -31,19 +31,19 @@ constructor(public navCtrl: NavController, public navParams: NavParams, public r
   this.getLiked(this.profil.id);
 }
 
-public isLiked(a : string) {      
+isLiked(a : string) {      
   let id = parseInt(a);
   if(this.likedArticles.indexOf(id) != -1)
   return true;
   else return false;      
 }
 
-private clic(article){
+clic(article){
   window.open(article.Link);
   console.log(article.Link);
 }
 
-private like(link, id){
+like(link, id){
   let idInt : number = parseInt(id);
   this.likedArticles.push(idInt);
   this.rest.doLike(this.profil.id, link)
@@ -61,7 +61,7 @@ private like(link, id){
   })
 }
 
-  private share(link){
+  share(link){
    this.rest.doShare(this.profil.id, link)
    .then(data => {
     console.log("data");
@@ -103,11 +103,4 @@ private like(link, id){
   ionViewDidLoad() {
     console.log('ionViewDidLoad AcceuilPage');
   }
-
-
-  clicked(){
-    console.log("clicked");
-  }
-
-  
 }

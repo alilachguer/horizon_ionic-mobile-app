@@ -18,6 +18,7 @@ export class HomePage {
 
   }
 
+  /**Procédure de connexion */
   public fbLogin(){
     this.facebook.login().subscribe((connected)=>{   //On surveille l'observable afin de récupérer le status de connection
       if(connected === true){
@@ -26,7 +27,8 @@ export class HomePage {
           this.rest.checkUser(this.userProfile.id , this.userProfile.name)
           .then(data => {
             if(JSON.stringify(data) == "true"){
-              this.navCtrl.push(AcceuilPage, {profil : this.userProfile});
+              //this.navCtrl.push(AcceuilPage, {profil : this.userProfile});
+              this.navCtrl.setRoot(AcceuilPage,{profil : this.userProfile}, {animate: true, direction: "forward"});
             }else{
               this.rest.postUser(this.userProfile.id , this.userProfile.name)
               .then(data => {
