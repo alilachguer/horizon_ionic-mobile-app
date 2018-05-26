@@ -11,12 +11,14 @@ import { AlertController } from 'ionic-angular';
 @Injectable()
 export class RestProvider {
 
+  /**Communication avec le backend REST */
   apiUrl = "http://umontpelliertesting.somee.com/api/articles";
 
   constructor(public http: HttpClient, public alertCtrl : AlertController) {
     console.log('Hello RestProvider Provider');
   }
 
+  /** Fonction de récupération des articles GET */
   getArticles(){
     return new Promise(resolve => {
       this.http.get(this.apiUrl).subscribe(data => {
@@ -27,6 +29,7 @@ export class RestProvider {
     });
   }
 
+  /** Fonction pour enregistrer un utilisateur dans la base de données , PARA : id utilisateur et nom utilisateur*/
   postUser(id: any, nom: any){
     return new Promise(resolve => {
       this.http.post(this.apiUrl+"/postuser", ('id='+id+'&nom='+ nom), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
@@ -38,6 +41,7 @@ export class RestProvider {
     });
   }
 
+  /** Fonction de partage normal, utilisateur sans badge , id de l'utilisateur et le link de l'article PEUT ETRE AMELIORE */
   doShare(id: any, link: any){
     return new Promise(resolve => {
       this.http.post(this.apiUrl+"/InsertShare", ('id='+id+'&link='+link), {headers: {'Content-Type' : 'application/x-www-form-urlencoded'}})
@@ -49,6 +53,7 @@ export class RestProvider {
     });
   }
 
+  /** Fonction de like normal, utilisateur sans badge, id de l'utilisateur et le link de l'article PEUT ETRE AMELIORE */
   doLike(id: any, link: any){
     return new Promise(resolve => {
       this.http.post(this.apiUrl+"/InsertLike", ('id='+id+'&link='+link), {headers: {'Content-Type' : 'application/x-www-form-urlencoded'}})
@@ -60,6 +65,7 @@ export class RestProvider {
     });
   }
 
+  /**fonction pour Récupérer tous les likes d'un utilisateur pour la décoration front end, id de l'utilisateur */
   getLike(id : any){
     return new Promise(resolve => {
       this.http.get(this.apiUrl+"/GetLikedArticlesByUser/"+id).subscribe(data => {
@@ -70,6 +76,7 @@ export class RestProvider {
     });
   }
 
+  /**fonction pour Vérifier si l'utilisateur existe déjà , id de l'utilisateur et son nom*/
   checkUser(id: any, nom: any){
     return new Promise(resolve => {
       this.http.post(this.apiUrl+"/checkuser", ('id='+id+'&nom='+ nom), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
@@ -81,6 +88,7 @@ export class RestProvider {
     });
   }
 
+  /**Fonction pour récupérer tous les commentaire par rapport à un id d'article */
   getComments(id : any){
     return new Promise(resolve => {
       this.http.get(this.apiUrl+"/getcomment/"+id).subscribe(data => {
@@ -91,6 +99,7 @@ export class RestProvider {
     });
   }
 
+  /**Function pour ajouter un commentaire de l'utilisateur, paramètres sont déjà parlants */
   doComment(idUtilisateur: any, idArticle : any, commentaire :any ){
     return new Promise(resolve => {
       this.http.post(this.apiUrl+"/postcomment", ('idUtilisateur='+idUtilisateur+'&idArticle='+ idArticle+'&contenu='+commentaire), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})

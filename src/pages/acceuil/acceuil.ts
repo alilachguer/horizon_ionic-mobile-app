@@ -44,17 +44,12 @@ private clic(article){
 }
 
 private like(link, id){
+  let idInt : number = parseInt(id);
+  this.likedArticles.push(idInt);
   this.rest.doLike(this.profil.id, link)
   .then(data => {
     if(JSON.stringify(data) == 'true'){
-      let alert = this.alertCtrl.create({
-        title: 'Action',
-        subTitle: 'Votre like a bien été pris en compte!',
-        buttons: ['Cool']
-      });
-      alert.present();
-      let idInt : number = parseInt(id);
-      this.likedArticles.push(idInt);
+      console.log("Like ok !! ");
     }else{
       let alert = this.alertCtrl.create({
         title: 'Action',
@@ -73,12 +68,6 @@ private like(link, id){
    })
    try{
     this.facebook.share(link)
-    let alert = this.alertCtrl.create({
-      title: 'Partage',
-      subTitle: 'Votre article a été partagé avec succès!',
-      buttons: ['Cool']
-    });
-    alert.present();
    }catch{
     let alert = this.alertCtrl.create({
       title: 'Partage',

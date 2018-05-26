@@ -17,6 +17,7 @@ export class FacebookProvider {
     console.log('Hello FacebookProvider Provider');
   }
 
+  /* FONCTION LOGIN : récupère la session facebook en utilisant l'email facebook*/
   login(){
     //On retourne un observable pour gérer les réponses Asynchrones
     return Observable.create(observer => {
@@ -35,6 +36,7 @@ export class FacebookProvider {
     });
   }
 
+    /** Function share pour facebook */
     share(link : string) {
         if(this.session.status === "connected"){
           this.facebook.showDialog({
@@ -47,7 +49,7 @@ export class FacebookProvider {
         }
     }
 
-
+    /**Récupérer le profil facebook, ici on demande le nom et la photo */
   getProfile(){ // Nouvelle fonction qui retourne un Observable avec les informations de profil
     return Observable.create(observer => {
       if(this.session.status === "connected"){
