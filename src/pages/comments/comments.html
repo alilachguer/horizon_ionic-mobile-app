@@ -14,8 +14,9 @@
 <ion-content padding>
   <ion-card *ngFor="let comment of listComments"> 
       <ion-card-content class="item item-text-wrap" style="white-space: pre-line;">
-          <p> {{ comment.Nom }} </p>
-          <p> {{ comment.Contenu }} </p>  
+          <p> <img src="{{comment.Picture}}" style="border-radius: 50%; height: 50px; width: 50px; float: left; margin-right: 7px;"/>
+            <span style="font-weight: bold;font-style: italic; color: #9575cd;">{{ comment.Nom }} </span></p>
+          <p style="font-weight: 600; font-size: 18px;"> {{ comment.Contenu }} </p>  
       </ion-card-content>
   </ion-card>
 </ion-content>

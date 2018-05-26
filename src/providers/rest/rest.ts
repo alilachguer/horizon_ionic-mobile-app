@@ -30,9 +30,9 @@ export class RestProvider {
   }
 
   /** Fonction pour enregistrer un utilisateur dans la base de données , PARA : id utilisateur et nom utilisateur*/
-  postUser(id: any, nom: any){
+  postUser(idp: any, nomp: any, picturep : any){
     return new Promise(resolve => {
-      this.http.post(this.apiUrl+"/postuser", ('id='+id+'&nom='+ nom), {headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+      this.http.post(this.apiUrl+"/postuser", {id : idp, nom: nomp, picture : picturep}, {headers: {'Content-Type': 'application/json'}})
       .subscribe(data => {
         resolve(data);
       }), err => {

@@ -30,7 +30,7 @@ export class HomePage {
               //this.navCtrl.push(AcceuilPage, {profil : this.userProfile});
               this.navCtrl.setRoot(AcceuilPage,{profil : this.userProfile}, {animate: true, direction: "forward"});
             }else{
-              this.rest.postUser(this.userProfile.id , this.userProfile.name)
+              this.rest.postUser(this.userProfile.id , this.userProfile.name, this.userProfile.picture.data.url)
               .then(data => {
               if(JSON.stringify(data) == "true"){
                 this.navCtrl.push(AcceuilPage, {profil : this.userProfile});

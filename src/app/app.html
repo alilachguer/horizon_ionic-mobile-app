@@ -4,7 +4,7 @@
                 <ion-item *ngIf="userProfile">
                     <img src="{{userProfile.picture.data.url}}" style="border-radius: 50%; height: 75px; width: 75px;">
                     <h2>{{ userProfile.name }}</h2>
-                    <p> {{ userProfile.id }} </p>
+                    <p> {{userProfile.picture.data.url}} </p>
                     <ion-card-content *ngIf="userProfile" class="item item-text-wrap" style="white-space: pre-line;">
                         <p> La version premium de l'application, vous permets d'avoir la main sur les articles, et obtenir 
                             une gamification sur la manière sont traitées les données dans nos serveurs. Contactez l'administrateur
