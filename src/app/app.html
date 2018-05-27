@@ -4,11 +4,69 @@
                 <ion-item *ngIf="userProfile">
                     <img src="{{userProfile.picture.data.url}}" style="border-radius: 50%; height: 75px; width: 75px;">
                     <h2>{{ userProfile.name }}</h2>
-                    <p> {{userProfile.picture.data.url}} </p>
                     <ion-card-content *ngIf="userProfile" class="item item-text-wrap" style="white-space: pre-line;">
-                        <p> La version premium de l'application, vous permets d'avoir la main sur les articles, et obtenir 
-                            une gamification sur la manière sont traitées les données dans nos serveurs. Contactez l'administrateur
-                            pour obtenir la version premium.</p>
+                        <table border="0">
+                            <tr>
+                                <td>                          
+                                        <span><img src="{{ (userScores[0] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[0] >= 10 && userScores[0] < 20) ? assets/imgs/bronze1.png : ((userScores[0] >= 20 && userScores[0] < 30) ? 'assets/imgs/silver1.png' : 'assets/imgs/gold1.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Arts: {{userScores[0]}}</span>                             
+                                </td>
+                                <td>                              
+                                        <span><img src="{{ (userScores[1] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[1] >= 10 && userScores[1] < 20) ? assets/imgs/bronze2.png : ((userScores[1] >= 20 && userScores[1] < 30) ? 'assets/imgs/silver2.png' : 'assets/imgs/gold2.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Economie: {{userScores[1]}}</span>                                                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                     
+                                        <span><img src="{{ (userScores[2] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[2] >= 10 && userScores[2] < 20) ? assets/imgs/bronze3.png : ((userScores[2] >= 20 && userScores[2] < 30) ? 'assets/imgs/silver3.png' : 'assets/imgs/gold3.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Technologie: {{userScores[2]}}</span>                                    
+                                </td>
+                                <td>                                    
+                                        <span><img src="{{ (userScores[3] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[3] >= 10 && userScores[3] < 20) ? assets/imgs/bronze4.png : ((userScores[3] >= 20 && userScores[3] < 30) ? 'assets/imgs/silver4.png' : 'assets/imgs/gold4.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Santé: {{userScores[3]}}</span>                                      
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                      
+                                        <span><img src="{{ (userScores[4] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[4] >= 10 && userScores[4] < 20) ? assets/imgs/bronze5.png : ((userScores[4] >= 20 && userScores[4] < 30) ? 'assets/imgs/silver5.png' : 'assets/imgs/gold5.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Domestique: {{userScores[4]}}</span>                                       
+                                </td>
+                                <td>                                       
+                                        <span><img src="{{ (userScores[5] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[5] >= 10 && userScores[5] < 20) ? assets/imgs/bronze6.png : ((userScores[5] >= 20 && userScores[5] < 30) ? 'assets/imgs/silver6.png' : 'assets/imgs/gold6.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Loisirs: {{userScores[5]}}</span>                                        
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                        
+                                        <span><img src="{{ (userScores[6] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[6] >= 10 && userScores[6] < 20) ? assets/imgs/bronze7.png : ((userScores[6] >= 20 && userScores[6] < 30) ? 'assets/imgs/silver7.png' : 'assets/imgs/gold7.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Education: {{userScores[6]}}</span>                                      
+                                </td>
+                                <td>                                       
+                                        <span><img src="{{ (userScores[7] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[7] >= 10 && userScores[7] < 20) ? assets/imgs/bronze8.png : ((userScores[7] >= 20 && userScores[7] < 30) ? 'assets/imgs/silver8.png' : 'assets/imgs/gold8.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Actualités: {{userScores[7]}}</span>                                        
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                         
+                                        <span><img src="{{ (userScores[8] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[8] >= 10 && userScores[8] < 20) ? assets/imgs/bronze9.png : ((userScores[8] >= 20 && userScores[8] < 30) ? 'assets/imgs/silver9.png' : 'assets/imgs/gold9.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Science: {{userScores[8]}}</span>         
+                                </td>
+                                <td>              
+                                        <span><img src="{{ (userScores[9] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[9] >= 10 && userScores[9] < 20) ? assets/imgs/bronze10.png : ((userScores[9] >= 20 && userScores[9] < 30) ? 'assets/imgs/silver10.png' : 'assets/imgs/gold10.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Shopping: {{userScores[9]}}</span>                                   
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>                                         
+                                        <span><img src="{{ (userScores[10] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[10] >= 10 && userScores[10] < 20) ? assets/imgs/bronze11.png : ((userScores[10] >= 20 && userScores[10] < 30) ? 'assets/imgs/silver11.png' : 'assets/imgs/gold11.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Société: {{userScores[10]}}</span>                                         
+                                </td>
+                                <td>                                         
+                                        <span><img src="{{ (userScores[11] < 10) ? 'assets/imgs/no_badge.png' : ((userScores[11] >= 10 && userScores[11] < 20) ? assets/imgs/bronze12.png : ((userScores[11] >= 20 && userScores[11] < 30) ? 'assets/imgs/silver12.png' : 'assets/imgs/gold12.png') ) }}" width=" 80" height="80"/></span>
+                                        <span>Sport: {{userScores[11]}}</span>                                    
+                                </td>
+                            </tr>
+                        </table>
                     </ion-card-content>
                 </ion-item>
             </ion-list>

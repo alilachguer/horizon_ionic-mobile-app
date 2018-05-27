@@ -110,4 +110,38 @@ export class RestProvider {
       }
     });
   }
+
+    /**Function pour ajouter un commentaire de l'utilisateur, paramètres sont déjà parlants */
+    doShareBadge(id: any, link : any){
+      return new Promise(resolve => {
+        this.http.post(this.apiUrl+"/InsertShareBadge", ('id='+id+'&link='+link), {headers: {'Content-Type' : 'application/x-www-form-urlencoded'}})
+        .subscribe(data => {
+          resolve(data);
+        }), err => {
+        console.log(err);
+        }
+      });
+    }
+
+    doLikeBadge(id: any, link: any){
+      return new Promise(resolve => {
+        this.http.post(this.apiUrl+"/InsertLikeBadge", ('id='+id+'&link='+link), {headers: {'Content-Type' : 'application/x-www-form-urlencoded'}})
+        .subscribe(data => {
+          resolve(data);
+        }), err =>{
+          console.log(err);
+        }
+      });
+    }
+
+    getScores(id: any){
+      return new Promise(resolve => {
+        this.http.get(this.apiUrl+"/userscores/"+id)
+        .subscribe(data => {
+          resolve(data);
+        }), err =>{
+          console.log(err);
+        }
+      });
+    }
 }

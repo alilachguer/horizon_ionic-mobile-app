@@ -6,6 +6,7 @@ import { NavController} from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
 import { FacebookProvider } from '../providers/facebook/facebook';
+import { RestProvider } from '../providers/rest/rest';
 
 @Component({
   templateUrl: 'app.html'
@@ -14,9 +15,10 @@ export class MyApp {
   @ViewChild('myNav') nav: NavController // <--- Reference to the Nav
   rootPage:any = HomePage;
   userProfile : any; 
+  userScores : any[];
 
   constructor(platform: Platform, statusBar: StatusBar,
-              splashScreen: SplashScreen, private facebook : FacebookProvider
+              splashScreen: SplashScreen, private facebook : FacebookProvider, private rest : RestProvider
               ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -32,6 +34,10 @@ export class MyApp {
       if(connected === true){
         this.facebook.getProfile().subscribe((profile)=>{   //Si connecté, on récupére le profil
           this.userProfile = profile;
+          this.rest.getScores(this.userProfile.id)
+          .then(data => {
+            this.userScores = JSON.parse(JSON.stringify(data));
+          })
         }, (error)=>{console.log(error); });
       }
     }, (error)=>{console.log(error);});
