@@ -2,7 +2,25 @@ page-acceuil {
     #ProfilPicture{
         border-radius: 50%;
         border: yellow 2px solid;
-    }    
+    }
+	
+	ion-title{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+	}
+
+	#image{
+		width: 100%;
+		height: auto;
+	}
+
+	#titre_article{
+		font-size: 5mm;
+	}
 }
 
 
