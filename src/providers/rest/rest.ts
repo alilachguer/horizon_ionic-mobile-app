@@ -12,7 +12,7 @@ import { AlertController } from 'ionic-angular';
 export class RestProvider {
 
   /**Communication avec le backend REST */
-  apiUrl = "http://umontpelliertesting.somee.com/api/articles";
+  apiUrl = "http://horizonapp.fr/api/articles";
 
   constructor(public http: HttpClient, public alertCtrl : AlertController) {
     console.log('Hello RestProvider Provider');
