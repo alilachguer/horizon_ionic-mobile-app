@@ -1,27 +1,36 @@
 page-acceuil {
-    #ProfilPicture{
-        border-radius: 50%;
-        border: yellow 2px solid;
+  #ProfilPicture{
+    border-radius: 50%;
+    border: yellow 2px solid;
+  }
+
+    ion-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
     }
-	
-	ion-title{
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		text-align: center;
-	}
 
-	#image{
-		width: 100%;
-		height: auto;
-	}
+    #image{
+    width: 50%;
+    height: 50%;
+    }
 
-	#titre_article{
-		font-size: 5mm;
-	}
+    #titre_article{
+    font-size: 2em;
+    }
+
+    .no-padding {
+      padding: 0px !important;
+  }
+
+  .no-margin-right {
+    margin-right: 0px !important;
+  }
+
+  .no-padding-right {
+    padding-right: 0px !important;
+  }
 }
-
-
-

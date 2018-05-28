@@ -1,9 +1,3 @@
-<!--
-  Generated template for the AcceuilPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <ion-buttons end>
@@ -14,45 +8,51 @@
     <ion-title>Horizon</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content class="no-margin">
 	<ion-grid>
-    <ion-row justify-content-center *ngFor="let article of articles" (tap)="clicked()">
-      <ion-col col-md-6 col-lg-6 col-xs-12 col-sm-12>
-          <ion-card>
+    <ion-row justify-content-center>
+      <ion-col col-md-6 col-lg-6 col-xl-6 *ngFor="let article of articles" (tap)="clicked()">
+          <ion-card class="no-padding" (tap)="clic(article)">
             <ion-row>
               <ion-col>
-                <div (tap)="clic(article)">
-                  <ion-card-content class="item item-text-wrap" style="white-space: pre-line;">
-                      <p id="titre_article"><b> {{ article.Titre }} </b></p>
+                  <ion-card-content class="item item-text-wrap">
+                      <p id="titre_article"><b>  {{ article.Titre }}</b></p>
                       <span>{{ article.PublishDate }} - {{ article.Categorie }}</span>
                       <ion-row justify-content-center>
-                        <ion-col>
-                            <img id="image" [src]="article.Image" alt="Pas d'image pour cet article" />
+                        <ion-col justify-content-center id="image" col-12 class="no-padding">
+                          <img [src]="article.Image" alt="Pas d'image pour cet article" />
                         </ion-col>
                       </ion-row>
                       <p> {{ article.Description }} </p>
                       <p> {{ article.Source }}</p>
                   </ion-card-content>
-                </div>
           </ion-col>
           </ion-row>
-              <span style="margin: 0 10px 0 10px">
-                  <button *ngIf="!isLiked(article.Id)" ion-button icon-only (click)="like(article.Link, article.Id)">
+                <ion-col class="no-padding-right">
+                  <button ion-button icon-only class="no-margin-right" *ngIf="!isLiked(article.Id)" (click)="like(article.Link, article.Id)">
                     <ion-icon name="thumbs-up"></ion-icon>
-                  </button>     
-                  <button ion-button icon-only outline color="danger" *ngIf="isLiked(article.Id)" style="color: red; font-size: 15px;">
+                  </button>
+                </ion-col>
+                <ion-col no-padding >
+                  <button ion-button class="no-margin-right" icon-only *ngIf="isLiked(article.Id)" outline color="danger"style="color: red; font-size: 15px;">
                     <ion-icon name="heart"></ion-icon>
-                  </button>      
-                  <button ion-button icon-only (click)="dislike(article.Id)">
+                  </button>
+                </ion-col>
+                <ion-col no-padding>
+                  <button ion-button icon-only class="no-margin-right" (click)="dislike(article.Id)">
                       <ion-icon name="chatbubbles"></ion-icon>
                   </button>
-                  <button ion-button icon-only (click)="share(article.Link)">
+                </ion-col>
+                <ion-col no-padding>
+                  <button ion-button icon-only class="no-margin-right" (click)="share(article.Link)">
                     <ion-icon name="share"></ion-icon>
                   </button>
-                  <button  ion-button icon-only outline color="secondary" (click)="readComments(article.Id)" style="padding: 0 5px 0 5px">
+                </ion-col>
+                <ion-col no-padding>
+                  <button  ion-button icon-only class="no-margin-right" (click)="readComments(article.Id)" outline color="secondary"  style="padding: 0 5px 0 5px">
                     commentaires
                   </button>
-              </span>
+                </ion-col>
           </ion-card>
         </ion-col>
         </ion-row>
