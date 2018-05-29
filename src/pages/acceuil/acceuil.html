@@ -39,4 +39,7 @@
               </span>
           </ion-card>
   </ion-list>
+  <div class="marginAuto">page {{ (limit / 10) + 1 }}</div>
+  <div class="marginAuto"><button ion-button round (click)="getPast()"><<<<</button><button ion-button round (click)="getNext()">>>>></button></div>
+  
 </ion-content>
