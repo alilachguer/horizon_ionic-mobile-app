@@ -27,7 +27,7 @@ export class AcceuilPage {
 constructor(public navCtrl: NavController, public navParams: NavParams, public rest : RestProvider, 
   private alertCtrl : AlertController, public facebook : FacebookProvider ) {
   this.profil = navParams.get('profil');
-  this.getArticlesByLimits();
+  this.getArticles();
   this.getLiked(this.profil.id);
 }
 
