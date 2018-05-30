@@ -2,7 +2,7 @@
         <ion-content>
             <ion-list>
                 <ion-item *ngIf="userProfile">
-                    <img src="{{userProfile.picture.data.url}}" style="border-radius: 50%; height: 75px; width: 75px;">
+                    <img class="imageSize" src="{{userProfile.picture.data.url}}" style="border-radius: 50%; height: 75px; width: 75px;">
                     <h2>{{ userProfile.name }}</h2>
                     <p> {{userProfile.picture.data.url}} </p>
                     <ion-card-content *ngIf="userProfile" class="item item-text-wrap" style="white-space: pre-line;">
