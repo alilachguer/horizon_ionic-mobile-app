@@ -1,21 +1,22 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      HORIZON
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding id="bodyGuard">
-  <ion-list>
-
-    <h1 id="WelcomeMessage">Bienvenue à Horizon</h1>
-
-    <div id="IconDiv">
-      {{ error }}
-      <img src="assets/imgs/sun-icon.png" id="Icon" width="225" height="75"/>
-    </div>
-    <button ion-button block style="background-color: #38006b;" (tap)="fbLogin()"><ion-icon name="logo-facebook" style="margin-right: 20px;"></ion-icon>Connexion avec Facebook</button>
-  </ion-list>
-
+<ion-content id="bodyGuard">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <h1 id="WelcomeMessage">Bienvenue à Horizon</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 id="IconDiv">
+        {{ error }}
+        <img src="assets/imgs/sun-icon.png" id="Icon" width="225" height="75"/>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col col-md-6 col-lg-6 col-xs-12 id="bouton">
+      <button ion-button block style="background-color: #38006b;" (tap)="fbLogin()">
+        <ion-icon name="logo-facebook" style="margin-right: 20px;">
+      </ion-icon>Connexion avec Facebook</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
