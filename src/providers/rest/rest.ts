@@ -121,4 +121,15 @@ export class RestProvider {
       }
     });
   }
+  /*recupérer les badges de l'utilisateur*/
+  getScores(id: any){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+"/userscores/"+id)
+      .subscribe(data => {
+        resolve(data);
+      }), err =>{
+        console.log(err);
+      }
+    });
+  }
 }
