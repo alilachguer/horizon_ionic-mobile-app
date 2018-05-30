@@ -29,6 +29,17 @@ export class RestProvider {
     });
   }
 
+  getArticlesByLimits(a : number){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+"/"+a).subscribe(data => {
+        resolve(data);
+      }), err => {
+        console.log(err);
+      }
+    });
+  }
+
+
   /** Fonction pour enregistrer un utilisateur dans la base de données , PARA : id utilisateur et nom utilisateur*/
   postUser(idp: any, nomp: any, picturep : any){
     return new Promise(resolve => {

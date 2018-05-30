@@ -20,14 +20,15 @@ import { CommentsPage } from '../comments/comments';
 export class AcceuilPage {
 
   profil : any; 
-  articles : any;
+  articles : any[];
   test : string; 
   likedArticles : any[]; 
+  limit : number = 0;
 
 constructor(public navCtrl: NavController, public navParams: NavParams, public rest : RestProvider, 
   private alertCtrl : AlertController, public facebook : FacebookProvider ) {
   this.profil = navParams.get('profil');
-  this.getArticles();
+  this.getArticlesByLimits();
   this.getLiked(this.profil.id);
 }
 
@@ -84,7 +85,34 @@ like(link, id){
 
   getArticles(){
     this.rest.getArticles()
-    .then(data => {
+    .then((data : any[]) => {
+      this.articles = data; 
+    })
+  }
+
+  getArticlesByLimits(){
+    this.rest.getArticlesByLimits(this.limit)
+    .then((data : any[]) => {
+      this.articles = data; 
+    })
+  }
+
+  getNext(){
+    this.limit = this.limit + 10;
+    this.rest.getArticlesByLimits(this.limit)
+    .then((data : any[]) => {
+      this.articles = data; 
+    })
+  }
+
+  getPast(){
+    this.limit = this.limit - 10;
+    if(this.limit < 0){
+      this.limit = this.limit + 10;
+      return; 
+    }
+    this.rest.getArticlesByLimits(this.limit)
+    .then((data : any[]) => {
       this.articles = data; 
     })
   }
